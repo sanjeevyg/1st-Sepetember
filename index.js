@@ -5,9 +5,12 @@ const port = 7000
 
 const knex = require('knex')
 
-const connection = require('./knexfile.js')['development']
+const connection = require('./knexfile.js')['development'];
+const { request } = require('express');
 
 const database = knex(connection)
+
+
 
 
 app.use(cors())
@@ -21,12 +24,11 @@ app.get('/yogi', (request, response) => {
     response.send({name: "Yogi"})
 })
 
-app.get('/', (request, response) => {
-
+app.get('/students', (request, response) => {
     database('student')
         .select()
         .then(result => {
-            response.json({result})
+            response.json(result)
         })
 })
 
@@ -34,9 +36,50 @@ app.post('/students', (request, response) => {
     const student = request.body
     database('student')
         .insert(student)
-        .select()
+        .returning('*')
         .then(student => {
-            response.json(student)
+            response.json({student})
+        }).catch(error => {
+            console.error({error: error.message})
+        })
+})
+
+app.get('/students/:id', (request, response) => {
+    const id = request.params.id
+    // console.log(request.params)
+    database('student')
+        .select().where({id: id}).first()
+        .then(student => {
+            response.json({student})
+        }).catch(error => {
+            console.error({error: error.message})
+        })
+})
+
+
+app.patch('/students/:id', (request, response) => {
+    const id = request.params.id
+    const student = request.body 
+
+    database('student')
+        .select()
+        .where({id: id})
+        .update(student)
+        .returning("*")
+        .then(student => {
+            response.json({student})
+        }).catch(error => {
+            console.error({error: error.message})
+        })
+})
+
+app.delete('/students/:id', (request, response) => {
+    const id = request.params.id 
+    database('student')
+        .where({id: id})
+        .delete()
+        .then(() => {
+            response.json({message: `student with ${id} is deleted! `})
         })
 })
 

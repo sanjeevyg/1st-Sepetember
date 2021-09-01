@@ -19,3 +19,44 @@
 2021-09-01 20:46:56.489 +0545 [20550] STATEMENT:  SELECT * from students
 	SELECT '*' from students
 	SELECT * from students;
+2021-09-01 20:55:27.595 +0545 [20880] ERROR:  syntax error at or near "select" at character 24
+2021-09-01 20:55:27.595 +0545 [20880] STATEMENT:  SELECT * from students
+	select * from student;
+2021-09-01 20:56:13.036 +0545 [20947] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2021-09-01 20:56:13.036 +0545 [20947] DETAIL:  Key (id)=(1) already exists.
+2021-09-01 20:56:13.036 +0545 [20947] STATEMENT:  insert into "student" ("age", "name") values ($1, $2) returning *
+2021-09-01 20:56:30.123 +0545 [20947] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2021-09-01 20:56:30.123 +0545 [20947] DETAIL:  Key (id)=(2) already exists.
+2021-09-01 20:56:30.123 +0545 [20947] STATEMENT:  insert into "student" ("age", "name") values ($1, $2) returning *
+2021-09-01 20:57:36.357 +0545 [20986] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2021-09-01 20:57:36.357 +0545 [20986] DETAIL:  Key (id)=(3) already exists.
+2021-09-01 20:57:36.357 +0545 [20986] STATEMENT:  insert into "student" ("age", "name") values ($1, $2) returning *
+2021-09-01 20:58:21.256 +0545 [21015] ERROR:  relation "students" does not exist at character 13
+2021-09-01 20:58:21.256 +0545 [21015] STATEMENT:  insert into "students" ("age", "name") values ($1, $2) returning *
+2021-09-01 20:59:58.207 +0545 [21058] ERROR:  relation "students" does not exist at character 13
+2021-09-01 20:59:58.207 +0545 [21058] STATEMENT:  insert into "students" ("age", "name") values ($1, $2) returning *
+2021-09-01 21:01:07.555 +0545 [21079] ERROR:  relation "students" does not exist at character 13
+2021-09-01 21:01:07.555 +0545 [21079] STATEMENT:  insert into "students" ("age", "name") values ($1, $2) returning *
+2021-09-01 21:16:56.697 +0545 [21527] ERROR:  relation "students" does not exist at character 13
+2021-09-01 21:16:56.697 +0545 [21527] STATEMENT:  insert into "students" ("age", "name") values ($1, $2) returning *
+2021-09-01 21:56:58.654 +0545 [22047] ERROR:  relation "students" does not exist at character 15
+2021-09-01 21:56:58.654 +0545 [22047] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:06:25.364 +0545 [22989] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:06:25.364 +0545 [22989] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:16:07.538 +0545 [24985] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:16:07.538 +0545 [24985] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:16:57.602 +0545 [25021] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:16:57.602 +0545 [25021] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:17:55.166 +0545 [25053] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:17:55.166 +0545 [25053] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:18:26.729 +0545 [25070] ERROR:  relation "students" does not exist at character 13
+2021-09-01 23:18:26.729 +0545 [25070] STATEMENT:  insert into "students" ("age", "name") values ($1, $2) returning *
+2021-09-01 23:19:17.890 +0545 [25070] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:19:17.890 +0545 [25070] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:19:28.869 +0545 [25070] LOG:  could not receive data from client: Connection reset by peer
+2021-09-01 23:24:29.071 +0545 [25225] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:24:29.071 +0545 [25225] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:25:42.052 +0545 [25271] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:25:42.052 +0545 [25271] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-01 23:33:53.617 +0545 [26776] ERROR:  relation "students" does not exist at character 15
+2021-09-01 23:33:53.617 +0545 [26776] STATEMENT:  select * from "students" where "id" = $1 limit $2
