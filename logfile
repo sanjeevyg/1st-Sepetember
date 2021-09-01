@@ -1,0 +1,21 @@
+2021-09-01 17:31:28.786 +0545 [18075] LOG:  starting PostgreSQL 13.3 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2021-09-01 17:31:28.788 +0545 [18075] LOG:  listening on IPv6 address "::1", port 5432
+2021-09-01 17:31:28.788 +0545 [18075] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-09-01 17:31:28.789 +0545 [18075] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2021-09-01 17:31:28.792 +0545 [18076] LOG:  database system was shut down at 2021-09-01 17:31:01 +0545
+2021-09-01 17:31:28.795 +0545 [18075] LOG:  database system is ready to accept connections
+2021-09-01 17:32:46.819 +0545 [18152] FATAL:  database "students-course-enrollment" does not exist
+2021-09-01 17:35:34.068 +0545 [18201] FATAL:  database "student" does not exist
+2021-09-01 17:35:40.132 +0545 [18221] FATAL:  database "student
+	" does not exist
+2021-09-01 17:35:46.161 +0545 [18239] FATAL:  database "student" does not exist
+2021-09-01 17:35:53.122 +0545 [18258] FATAL:  database "students" does not exist
+2021-09-01 20:42:04.154 +0545 [20321] FATAL:  database "students-course-enrollment" does not exist
+2021-09-01 20:44:50.441 +0545 [20475] FATAL:  database "sanjeev" does not exist
+2021-09-01 20:44:54.477 +0545 [20494] FATAL:  database "student" does not exist
+2021-09-01 20:45:02.681 +0545 [20514] FATAL:  database "student
+	" does not exist
+2021-09-01 20:46:56.489 +0545 [20550] ERROR:  syntax error at or near "SELECT" at character 24
+2021-09-01 20:46:56.489 +0545 [20550] STATEMENT:  SELECT * from students
+	SELECT '*' from students
+	SELECT * from students;
