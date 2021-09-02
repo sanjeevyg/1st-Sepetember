@@ -2,6 +2,7 @@ const express = require('express');
 const app = express()
 const cors = require('cors')
 const port = 7000
+const bcrypt = require('bcrypt')
 
 const knex = require('knex')
 
@@ -81,6 +82,22 @@ app.delete('/students/:id', (request, response) => {
         .then(() => {
             response.json({message: `student with ${id} is deleted! `})
         })
+})
+
+
+app.post('/user', (request, response) => {
+    bcrypt.hash(request.body.password, 20, (error, hasedPassword) => {
+        database('user')
+            .insert({
+                username: request.body.username,
+                hased_password: hasedPassword
+            })
+            .returning('*')
+            .then(user => {
+                response.json({user})
+            }).catch(error => {
+                console.error({error: error.message})
+            })
 })
 
 
