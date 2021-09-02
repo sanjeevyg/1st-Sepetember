@@ -60,3 +60,25 @@
 2021-09-01 23:25:42.052 +0545 [25271] STATEMENT:  select * from "students" where "id" = $1 limit $2
 2021-09-01 23:33:53.617 +0545 [26776] ERROR:  relation "students" does not exist at character 15
 2021-09-01 23:33:53.617 +0545 [26776] STATEMENT:  select * from "students" where "id" = $1 limit $2
+2021-09-02 11:50:09.198 +0545 [32622] ERROR:  column "hased_password" of relation "user" does not exist at character 21
+2021-09-02 11:50:09.198 +0545 [32622] STATEMENT:  insert into "user" ("hased_password", "username") values (DEFAULT, $1) returning *
+2021-09-02 11:52:01.172 +0545 [32674] ERROR:  duplicate key value violates unique constraint "user_pkey"
+2021-09-02 11:52:01.172 +0545 [32674] DETAIL:  Key (id)=(1) already exists.
+2021-09-02 11:52:01.172 +0545 [32674] STATEMENT:  insert into "user" ("password_hash", "username") values (DEFAULT, $1) returning *
+2021-09-02 12:39:54.520 +0545 [33898] ERROR:  column "password_digest" of relation "user" does not exist at character 27
+2021-09-02 12:39:54.520 +0545 [33898] STATEMENT:  insert into "user" ("id", "password_digest", "username") values ($1, $2, $3)
+2021-09-02 12:39:54.532 +0545 [33898] LOG:  could not receive data from client: Connection reset by peer
+2021-09-02 12:42:23.189 +0545 [34055] ERROR:  column "password_digest" of relation "user" does not exist at character 27
+2021-09-02 12:42:23.189 +0545 [34055] STATEMENT:  insert into "user" ("id", "password_digest", "username") values ($1, $2, $3)
+2021-09-02 12:42:23.203 +0545 [34055] LOG:  could not receive data from client: Connection reset by peer
+2021-09-02 12:42:57.093 +0545 [34108] ERROR:  column "password_digest" of relation "user" does not exist at character 27
+2021-09-02 12:42:57.093 +0545 [34108] STATEMENT:  insert into "user" ("id", "password_digest", "username") values ($1, $2, $3)
+2021-09-02 12:42:57.103 +0545 [34108] LOG:  could not receive data from client: Connection reset by peer
+2021-09-02 12:44:34.815 +0545 [34180] ERROR:  column "password_digest" of relation "user" does not exist at character 27
+2021-09-02 12:44:34.815 +0545 [34180] STATEMENT:  insert into "user" ("id", "password_digest", "username") values ($1, $2, $3)
+2021-09-02 12:46:25.610 +0545 [34285] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2021-09-02 12:46:25.610 +0545 [34285] DETAIL:  Key (id)=(1) already exists.
+2021-09-02 12:46:25.610 +0545 [34285] STATEMENT:  insert into "student" ("age", "id", "name") values ($1, $2, $3), ($4, $5, $6), ($7, $8, $9)
+2021-09-02 12:46:25.638 +0545 [34285] LOG:  could not receive data from client: Connection reset by peer
+2021-09-02 12:57:51.218 +0545 [34594] ERROR:  column "password" of relation "student" does not exist at character 24
+2021-09-02 12:57:51.218 +0545 [34594] STATEMENT:  insert into "student" ("password", "username") values ($1, $2) returning *

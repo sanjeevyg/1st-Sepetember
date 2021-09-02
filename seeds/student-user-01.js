@@ -1,7 +1,7 @@
 
-exports.seed = async knex => {
-  // Deletes ALL existing entries
-  await knex('student').del()
+exports.seed = async knex =>{
+  // await knex('student').del()
+  await knex('user').del()
     
       // Inserts seed entries
   await knex('student').insert([
@@ -10,4 +10,7 @@ exports.seed = async knex => {
         {id: 3, name:'Anil', age: 27},
       ]);
     ;
+  await knex('user').insert([
+        {id: 1, username:'Sanjeev Yogi', password_hash: 'colorado'}
+      ]);
 };

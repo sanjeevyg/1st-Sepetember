@@ -4,12 +4,14 @@ const cors = require('cors')
 const port = 7000
 const bcrypt = require('bcrypt')
 
+
 const knex = require('knex')
 
 const connection = require('./knexfile.js')['development'];
-const { request } = require('express');
 
 const database = knex(connection)
+
+const jwt = require('jsonwebtoken')
 
 
 
@@ -85,12 +87,12 @@ app.delete('/students/:id', (request, response) => {
 })
 
 
-app.post('/user', (request, response) => {
-    bcrypt.hash(request.body.password, 20, (error, hasedPassword) => {
+app.post('/users', (request, response) => {
+    bcrypt.hash(request.body.password, 12, (error, hasedPassword) => {
         database('user')
             .insert({
                 username: request.body.username,
-                hased_password: hasedPassword
+                password_hash: hasedPassword
             })
             .returning('*')
             .then(user => {
@@ -98,7 +100,19 @@ app.post('/user', (request, response) => {
             }).catch(error => {
                 console.error({error: error.message})
             })
+})})
+
+app.get('/users', (request, response) => {
+    database('user' )
+        .select()
+        .then(users => {
+            response.json(users)
+        }).catch(error=> {
+            console.error({error: error.message})
+        })
 })
+
+module.exports = app;
 
 
 
