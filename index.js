@@ -112,6 +112,35 @@ app.get('/users', (request, response) => {
         })
 })
 
+app.post('/login', (request, response) => {
+    database('user')
+        .where({username: request.body.username}).first()
+        .then(retrievedUser => {
+            if(!retrievedUser) throw new Error('User not found')
+
+            return  Promise.all(
+                   [ bcrypt.compare(request.body.password, retrievedUser.hasedPassword),
+                    Promise.resolve(retrievedUser)]
+            ).then( results => {
+                const passwordAreSame = results[0]
+                const user = results[1]
+
+                if(!passwordAreSame) throw new Error('password is wrong!')
+                    payload = {username: user.username}
+                    secret = 'secret'
+
+                    jwt.sign(payload, secret, (error, token) => {
+                        if(error) throw new Error('Sign in error!')
+                        response.json(token)
+                    }).catch(error => {
+                        console.error({error: error.message})
+                    })
+             }
+            )
+        })
+
+})
+
 module.exports = app;
 
 
